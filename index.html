@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!-- YouTube Playables SDK: must load before any game code. -->
+  <script src="https://www.youtube.com/game_api/v1"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>Trash Tycoon</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <canvas id="game"></canvas>
+
+  <!-- In-game HUD -->
+  <div id="hud" class="hidden">
+    <div class="hud-top">
+      <div class="pill coins"><span class="coin-ico"></span><span id="coins">0</span></div>
+      <div class="pill zone-pill" id="zoneName">City Park</div>
+      <button class="icon-btn" id="btnSettings" aria-label="Settings">&#9881;</button>
+    </div>
+    <div class="bagbar" id="bagbar">
+      <div class="bag-fill" id="bagFill"></div>
+      <span class="bag-text" id="bagText">0 / 10</span>
+    </div>
+    <div class="hud-bottom">
+      <button class="big-btn" id="btnUpgrades"><span class="bi">&#128295;</span><span>Upgrades</span><i class="badge hidden" id="upBadge">0</i></button>
+      <button class="big-btn alt" id="btnMap"><span class="bi">&#128506;</span><span>Areas</span><i class="badge hidden" id="mapBadge">!</i></button>
+    </div>
+    <div id="hint" class="hidden"></div>
+  </div>
+
+  <!-- Modal panel -->
+  <div id="panel" class="modal hidden">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h2 id="panelTitle">Upgrades</h2>
+        <button class="icon-btn close" id="panelClose" aria-label="Close">&#10005;</button>
+      </div>
+      <div class="modal-body" id="panelBody"></div>
+    </div>
+  </div>
+
+  <!-- Title screen -->
+  <div id="title" class="screen hidden">
+    <div class="logo">
+      <div class="logo-top">TRASH</div>
+      <div class="logo-bot">TYCOON</div>
+    </div>
+    <p class="tagline">Clean up the world, one piece at a time!</p>
+    <button id="btnPlay" class="play-btn">PLAY</button>
+  </div>
+
+  <div id="toast" class="hidden"></div>
+
+  <script src="js/sdk.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
